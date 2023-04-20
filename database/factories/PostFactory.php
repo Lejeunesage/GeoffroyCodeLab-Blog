@@ -24,6 +24,8 @@ class PostFactory extends Factory
             'thumbnail' => fake()->imageUrl,
             'body' => fake()->realText(5000),
             'active' => fake()->boolean,
+            'meta_title'  => fake()->sentence(6), 
+            'meta_description'  => fake()->paragraph(3),
             'published_at' => fake()->dateTime,
             'user_id' => 1
 
