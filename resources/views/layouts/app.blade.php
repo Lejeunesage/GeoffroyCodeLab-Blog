@@ -4,27 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $metaTitle ?: 'Fifamin Blog' }}</title>
+    <title>{{'Fifamin Blog' }}</title>
     <meta name="author" content="Fifamin">
     <meta name="description" content="{{ $metaDescription }}">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-
-        .font-family-karla 
-        {
-            font-family: karla;
-        }
-
-        pre
-        {
-            padding: 1rem;
-            background-color: #1a282c;
-            color: white;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem
-        }
     </style>
 
     <!-- Font Awesome -->
@@ -137,7 +123,7 @@
 
     <footer class="w-full border-t bg-white pb-12">
         <div class="w-full container mx-auto flex flex-col items-center">
-            <div class="uppercase py-6">&copy; myblog.com</div>
+            <div class="uppercase py-6">&copy; Fifamin Blog</div>
         </div>
     </footer>
 
