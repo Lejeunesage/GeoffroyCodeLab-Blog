@@ -10,17 +10,43 @@
             @endforeach
 
 
-            {{$posts->links()}}
-
+            
             <!-- Pagination -->
-            <div class="flex items-center py-8">
-                <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
-                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
-                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
+            {{$posts->links()}}
+         
+
+
+            <!-- About section -->
+            <div class="hidden md:flex w-full flex flex-col lg:gap-0 gap-5 text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
+            <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
+                <img src=" {{ \App\Models\TextWidget::getImage('about-us-sidebar') }}" alt="Geoffroy OTEGBEYE" class="rounded-full shadow h-32 w-32">
             </div>
+            <div class="flex-1 flex flex-col justify-center md:justify-start">
+                <p class="font-semibold text-2xl">
+                {{ \App\Models\TextWidget::getTitle('about-us-sidebar') }}
+                </p>
+                {!! \App\Models\TextWidget::getContent('about-us-sidebar') !!}
+                <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4">
+                  <a class="pl-4" href="#">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a class="pl-4" href="#">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a class="pl-4" href="#">
+                        <i class="fab fa-gitlab"></i>
+                    </a>
+                    <a class="pl-4" href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
 
         </section>
 
 
-        <x-sidebar></x-sidebar>
+        <x-sidebar>
+
+        </x-sidebar>
     </x-app-layout>
