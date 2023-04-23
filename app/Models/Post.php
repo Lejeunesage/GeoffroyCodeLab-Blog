@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,9 +26,9 @@ class Post extends Model
         // 'meta_description'
     ];
 
-    // protected $casts = [
-    //     'published_at' => 'datetime'
-    // ];
+    protected $casts = [
+        'published_at' => 'datetime'
+    ];
 
     public function user(): BelongsTo
     {
@@ -39,24 +40,31 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    // public function shortBody($words = 30): string
-    // {
-    //     return Str::words(strip_tags($this->body), $words);
-    // }
+    public function shortBody($words = 30): string
+    {
+        return Str::words(strip_tags($this->body), $words);
+    }
 
-    // public function getFormattedDate()
-    // {
-    //     return $this->published_at->format('F jS Y');
-    // }
+    public function getFormattedDate()
+    {
+        // Convertir la date de publication en objet Carbon
+        $published_at = Carbon::parse($this->published_at);
 
-    // public function getThumbnail()
-    // {
-    //     if (str_starts_with($this->thumbnail, 'http')) {
-    //         return $this->thumbnail;
-    //     }
+        // Définir la locale française
+        $published_at_fr = $published_at->locale('fr_FR');
 
-    //     return '/storage/' . $this->thumbnail;
-    // }
+        // Formater la date en français
+        return $published_at_fr->isoFormat('LL'); // ex: 13 mai 2022
+    }
+
+    public function getThumbnail()
+    {
+        if (str_starts_with($this->thumbnail, 'http')) {
+            return $this->thumbnail;
+        }
+
+        return '/storage/' . $this->thumbnail;
+    }
 
     // public function humanReadTime(): Attribute
     // {
