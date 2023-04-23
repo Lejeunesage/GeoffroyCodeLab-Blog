@@ -8,8 +8,9 @@
 
             </x-post-item>
             @endforeach
-            
 
+
+            {{$posts->links()}}
 
             <!-- Pagination -->
             <div class="flex items-center py-8">
@@ -19,4 +20,7 @@
             </div>
 
         </section>
+
+
+        <x-sidebar></x-sidebar>
     </x-app-layout>
