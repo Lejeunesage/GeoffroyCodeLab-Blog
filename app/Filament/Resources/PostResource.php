@@ -16,6 +16,8 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+
 
 class PostResource extends Resource
 {
@@ -46,8 +48,9 @@ class PostResource extends Resource
                                     
                             ]),
 
-                        Forms\Components\RichEditor::make('body')
-                            ->required(),
+                       TinyEditor::make('body')
+                            ->required()
+                            ->showMenuBar(),
                         Forms\Components\Toggle::make('active')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at'),
