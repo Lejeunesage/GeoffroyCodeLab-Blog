@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fifamin Blog</title>
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <title>{{ $metaTitle ?: 'Fifamin Blog' }}</title>
+    <meta name="author" content="Fifamin">
+    <meta name="description" content="{{ $metaDescription }}">
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -26,12 +26,22 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
+
+        pre {
+            border: 1px solid white;
+            background-color: #1a282c;
+            color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
     </style>
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-gray-50 font-family-karla">
@@ -66,9 +76,9 @@
     </nav> -->
 
     <!-- Text Header -->
-    <header class="w-full   bg-blue-800 shadow-md mx-auto">
-        <div class="flex flex-col items-center py-5">
-            <a class="font-bold text-white uppercase hover:text-gray-700 text-3xl" href="#">
+    <header class="w-full flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
+        <div class="flex flex-col  justify-startitems-center">
+            <a class="font-bold text-white uppercase  text-3xl" href="{{ route('home') }}">
 
                 {{ \App\Models\TextWidget::getTitle('header') }}
             </a>
@@ -76,27 +86,40 @@
                 {!! \App\Models\TextWidget::getContent('header') !!}
             </span>
         </div>
+        <div>
+            <a href="{{ route('home') }}"
+                class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a>
+            <a href="#" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
+
+            <a href="{{ route('about-us') }}"
+                class="{{ request()->routeIs('about-us') ? 'bg-blue-600 text-white' : '' }}   hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">A
+                propos</a>
+        </div>
     </header>
 
     <!-- Topic Nav -->
     <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
         <div class="block sm:hidden">
-            <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center" @click="open = !open">
-                Sujets <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+            <a href="#"
+                class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+                @click="open = !open">
+                Sujets <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
             </a>
+
         </div>
-        <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+        <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+            <div
+                class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
 
-                <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a>
+                {{-- <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a> --}}
 
 
-                @foreach($categories as $category)
-                <a href="{{route('by-category', $category)}}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug
-                ? 'bg-blue-600 text-white' :  ''}}">{{$category->title}}</a>
+                @foreach ($categories as $category)
+                    <a href="{{ route('by-category', $category) }}"
+                        class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">{{ $category->title }}</a>
                 @endforeach
 
-                <a href="#" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
+
 
             </div>
         </div>

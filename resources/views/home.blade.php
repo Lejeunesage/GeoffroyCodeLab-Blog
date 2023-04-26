@@ -1,4 +1,5 @@
-    <x-app-layout>
+    <x-app-layout  meta-title="Le blog personnel de Fifamin sur les tutoriels de programmation"
+    meta-description="Apprenez à créer une application perfornante">
         <!-- Posts Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 

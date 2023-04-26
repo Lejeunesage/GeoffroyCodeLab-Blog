@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-app-layout  :meta-title="'Fifamin Blog - ' . $category->title"
+    :meta-description="'Posts filtrés par la catégorie ' . $category->title">
     <div class="container mx-auto flex flex-wrap py-6">
 
         <!-- Posts Section -->
@@ -8,7 +9,9 @@
                     <x-post-item :post="$post"/>
                 @endforeach
             </div>
-            {{ $posts->links() }}
+           
+            <!-- Pagination -->
+            {{$posts->links()}}
         </section>
 
         <!-- Sidebar Section -->

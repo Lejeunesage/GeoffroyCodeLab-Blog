@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class TextWidgetResource extends Resource
 {
@@ -31,7 +32,8 @@ class TextWidgetResource extends Resource
                 Forms\Components\FileUpload::make('image'),
                 Forms\Components\TextInput::make('title')
                     ->maxLength(2048),
-                Forms\Components\RichEditor::make('content'),
+                TinyEditor::make('content')
+                    ->showMenuBar(),
                 Forms\Components\Toggle::make('active')
                     ->required(),
             ])->columns(1);

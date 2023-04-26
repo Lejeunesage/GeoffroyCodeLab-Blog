@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="w-full bg-white shadow flex flex-col my-4 p-6 shadow-lg rounded">
+  <div class="w-full bg-white flex flex-col my-4 p-6 shadow-lg rounded">
     <img class="w-32 h-32 rounded-full mx-auto" src=" {{ \App\Models\TextWidget::getImage('about-us-sidebar') }}" alt="Geoffroy OTEGBEYE" class="aspect-[4/3] object-contain">
 
     <p class="text-xl font-semibold pb-5">
@@ -24,7 +24,7 @@
 
     {!! \App\Models\TextWidget::getContent('about-us-sidebar') !!}
 
-    <a href="" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+    <a href="{{route('about-us')}}" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
       Apprendre à mieux me connaître
     </a>
   </div>
