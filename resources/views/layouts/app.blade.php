@@ -40,8 +40,7 @@
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-gray-50 font-family-karla">
@@ -76,54 +75,50 @@
     </nav> -->
 
     <!-- Text Header -->
-    <header class="w-full flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
-        <div class="flex flex-col  justify-startitems-center">
-            <a class="font-bold text-white uppercase  text-3xl" href="{{ route('home') }}">
+    <div class="fixed right-0 left-0">
+        <header class="w-full  flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
+            <div class="flex flex-col  justify-startitems-center">
+                <a class="font-bold text-white uppercase  text-3xl" href="{{ route('home') }}">
 
-                {{ \App\Models\TextWidget::getTitle('header') }}
-            </a>
-            <span class="text-lg text-white">
-                {!! \App\Models\TextWidget::getContent('header') !!}
-            </span>
-        </div>
-        <div>
-            <a href="{{ route('home') }}"
-                class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a>
-            <a href="#" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
+                    {{ \App\Models\TextWidget::getTitle('header') }}
+                </a>
+                <span class="text-lg text-white">
+                    {!! \App\Models\TextWidget::getContent('header') !!}
+                </span>
+            </div>
+            <div>
+                <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 text-white hover:text-white">Accueil</a>
+                <a href="#" class=" text-white hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
 
-            <a href="{{ route('about-us') }}"
-                class="{{ request()->routeIs('about-us') ? 'bg-blue-600 text-white' : '' }}   hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">A
-                propos</a>
-        </div>
-    </header>
+                <a href="{{ route('about-us') }}" class="{{ request()->routeIs('about-us') ? 'bg-blue-600 text-white' : '' }}   hover:bg-blue-600 hover:text-white text-white rounded py-2 px-4 mx-2">A
+                    propos</a>
+            </div>
+        </header>
 
-    <!-- Topic Nav -->
-    <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
-        <div class="block sm:hidden">
-            <a href="#"
-                class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-                @click="open = !open">
-                Sujets <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
-            </a>
-
-        </div>
-        <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div
-                class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-
-                {{-- <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a> --}}
-
-
-                @foreach ($categories as $category)
-                    <a href="{{ route('by-category', $category) }}"
-                        class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">{{ $category->title }}</a>
-                @endforeach
-
-
+        <!-- Topic Nav -->
+        <nav class=" w-full   border-t border-b bg-gray-100" x-data="{ open: false }">
+            <div class="block sm:hidden">
+                <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center" @click="open = !open">
+                    Sujets <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
+                </a>
 
             </div>
-        </div>
-    </nav>
+            <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+                <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+
+                    {{-- <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a> --}}
+
+
+                    @foreach ($categories as $category)
+                    <a href="{{ route('by-category', $category) }}" class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">{{ $category->title }}</a>
+                    @endforeach
+
+
+
+                </div>
+            </div>
+        </nav>
+    </div>
 
 
     <div class="container mx-auto flex flex-wrap p-6 border">
@@ -163,30 +158,30 @@
         </div>
     </footer>
 
-    <!-- <script>
-        function getCarouselData() {
-            return {
-                currentIndex: 0,
-                images: [
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=9',
-                ],
-                increment() {
-                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
-                },
-                decrement() {
-                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
-                },
-            }
-        }
-    </script> -->
+    <script>
+        // function getCarouselData() {
+        //     return {
+        //         currentIndex: 0,
+        //         images: [
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=1',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=2',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=3',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=4',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=5',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=6',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=7',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=8',
+        //             'https://source.unsplash.com/collection/1346951/800x800?sig=9',
+        //         ],
+        //         increment() {
+        //             this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
+        //         },
+        //         decrement() {
+        //             this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
+        //         },
+        //     }
+        // }
+    </script>
 
 </body>
 
