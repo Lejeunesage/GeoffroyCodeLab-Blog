@@ -35,6 +35,10 @@
             padding: 1rem;
             margin-bottom: 1rem;
         }
+
+        main {
+            margin-top: 7rem;
+        }
     </style>
 
     <!-- AlpineJS -->
@@ -75,7 +79,7 @@
     </nav> -->
 
     <!-- Text Header -->
-    <div class="fixed right-0 left-0">
+    <div class="fixed right-0 left-0 top-0">
         <header class="w-full  flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
             <div class="flex flex-col  justify-startitems-center">
                 <a class="font-bold text-white uppercase  text-3xl" href="{{ route('home') }}">
@@ -121,11 +125,13 @@
     </div>
 
 
-    <div class="container mx-auto flex flex-wrap p-6 border">
+    <main>
+        <div class="container mx-auto flex flex-wrap p-6 border">
 
-        {{ $slot }}
+            {{ $slot }}
 
-    </div>
+        </div>
+    </main>
 
 
     <footer class="w-full border-t bg-white pb-12">
