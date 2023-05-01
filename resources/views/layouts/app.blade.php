@@ -8,43 +8,17 @@
     <meta name="author" content="Fifamin">
     <meta name="description" content="{{ $metaDescription }}">
 
-    <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
-        .font-family-karla {
-            font-family: karla;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #1e40af;
-            border-radius: 50px;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        pre {
-            border: 1px solid white;
-            background-color: #1a282c;
-            color: white;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        main {
-            margin-top: 7rem;
-        }
     </style>
 
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-50 font-family-karla">
@@ -90,12 +64,55 @@
                     {!! \App\Models\TextWidget::getContent('header') !!}
                 </span>
             </div>
-            <div>
+            <div class="flex sm:items-center  text-white">
                 <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 text-white hover:text-white">Accueil</a>
                 <a href="#" class=" text-white hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
 
                 <a href="{{ route('about-us') }}" class="{{ request()->routeIs('about-us') ? 'bg-blue-600 text-white' : '' }}   hover:bg-blue-600 hover:text-white text-white rounded py-2 px-4 mx-2">A
                     propos</a>
+
+
+                <!-- Settings Dropdown -->
+                @auth
+                <div class="flex sm:items-center sm:ml-6">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="hover:bg-blue-600 hover:text-white flex items-center rounded py-2 px-4 mx-2">
+                                <div>{{ Auth::user()->name }}</div>
+
+                                <div class="ml-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Profil') }}
+                            </x-dropdown-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="border-b">
+                                    {{ __('Se déconnecter') }}
+                                </x-dropdown-link>
+                            </form>
+                            
+                            <a href="/admin" class=" text-gray-800 text-[0.9rem] rounded py-3 px-2 mx-2">Admin</a>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+                @else
+                <a href="{{route('login')}}" class="hover:bg-blue-600 text-white rounded py-2 px-4 mx-2">Se connecter</a>
+                <a href="{{route('register')}}" class="hover:bg-blue-600  text-white rounded py-2 px-4 mx-2">S'inscrire</a>
+
+
+                @endauth
             </div>
         </header>
 

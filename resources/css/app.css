@@ -1,20 +1,32 @@
-::-webkit-scrollbar-thumb{
-    background-color: blue;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.font-family-karla {
+    font-family: karla;
 }
 
-::-webkit-scrollbar-track
-{
 
-    background-color: blue;
+::-webkit-scrollbar-thumb {
+    background-color: #1e40af;
+    border-radius: 50px;
 }
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
     width: 10px;
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+pre {
+    border: 1px solid white;
+    background-color: #1a282c;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+main {
+    margin-top: 7rem;
+}

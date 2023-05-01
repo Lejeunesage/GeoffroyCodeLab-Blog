@@ -14,21 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Post::factory(50)->create();
+        // \App\Models\Post::factory(50)->create();
 
         /** @var \App\Models\User $adminUser */
-        // $adminUser = User::factory()->create([
-        //     'email' => 'admin@example.com',
-        //     'name' => 'Admin',
-        //     'password' => bcrypt('admin123')
-        // ]);
+        $adminUser = User::factory()->create([
+            'email' => 'admin@example.com',
+            'name' => 'Admin',
+            'password' => bcrypt('admin123')
+        ]);
 
-        // $adminRole = Role::create(['name' => 'admin']);
-        // $adminUser->assignRole($adminRole);
+        $adminRole = Role::create(['name' => 'admin']);
+        $adminUser->assignRole($adminRole);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+    //     \App\Models\User::factory()->create([
+    //         'name' => 'Test User',
+    //         'email' => 'test@example.com',
+    //     ]);
     }
 }
