@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-         
+         <livewire:upvote-downvote :post="$post" class="ml-5"/>
 
         </article>
 
