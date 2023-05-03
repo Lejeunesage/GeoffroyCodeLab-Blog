@@ -32,6 +32,8 @@
                 </div>
             </div>
 
+         <livewire:upvote-downvote :post="$post" class="ml-5"/>
+
         </article>
 
         <div class="w-full flex pt-6">

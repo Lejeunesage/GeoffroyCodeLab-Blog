@@ -17,6 +17,8 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
+    @livewireStyles
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -102,16 +104,15 @@
                                     {{ __('Se déconnecter') }}
                                 </x-dropdown-link>
                             </form>
-                            
-                            <a href="/admin" class=" text-gray-800 text-[0.9rem] rounded py-3 px-2 mx-2">Admin</a>
+                            @can('access-admin-panel')
+                            <a href="/admin" class=" text-gray-800 text-[0.9rem] rounded py-3 px-2 mx-2">Panel Admin</a>
+                            @endcan
                         </x-slot>
                     </x-dropdown>
                 </div>
                 @else
                 <a href="{{route('login')}}" class="hover:bg-blue-600 text-white rounded py-2 px-4 mx-2">Se connecter</a>
                 <a href="{{route('register')}}" class="hover:bg-blue-600  text-white rounded py-2 px-4 mx-2">S'inscrire</a>
-
-
                 @endauth
             </div>
         </header>
@@ -180,7 +181,7 @@
             <div class="uppercase py-6">&copy; fifamin.com</div>
         </div>
     </footer>
-
+    @livewireScripts
     <script>
         // function getCarouselData() {
         //     return {
