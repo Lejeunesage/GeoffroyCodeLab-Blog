@@ -14,6 +14,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class PostResource extends Resource
 {
@@ -39,9 +40,10 @@ class PostResource extends Resource
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(2048),
-                        Forms\Components\RichEditor::make('body')
+                            TinyEditor::make('body')
+                            ->showMenuBar()
                             ->required(),
-                        Forms\Components\TextInput::make('meta_title')
+                            Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255),
                         Forms\Components\Textarea::make('meta_description')
                             ->maxLength(255),
