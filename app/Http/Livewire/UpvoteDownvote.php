@@ -31,6 +31,7 @@ class UpvoteDownvote extends Component
 
         /** @var \App\Models\User $user */
         $user = request()->user();
+
         if ($user) {
             $model = \App\Models\UpvoteDownvote::where('post_id', '=', $this->post->id)->where('user_id', '=', $user->id)->first();
             if ($model) {
@@ -38,7 +39,11 @@ class UpvoteDownvote extends Component
             }
         }
 
-        return view('livewire.upvote-downvote', compact('upvotes', 'downvotes', 'hasUpvote'));
+        return view('livewire.upvote-downvote', compact(
+            'upvotes',
+            'downvotes',
+            'hasUpvote'
+        ));
     }
 
     public function upvoteDownvote($upvote = true)
@@ -71,5 +76,4 @@ class UpvoteDownvote extends Component
             $model->save();
         }
     }
-
 }

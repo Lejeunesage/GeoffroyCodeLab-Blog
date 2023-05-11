@@ -2595,16 +2595,16 @@
         },
         {
             "name": "mohamedsabil83/filament-forms-tinyeditor",
-            "version": "v1.7.1",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mohamedsabil83/filament-forms-tinyeditor.git",
-                "reference": "1344599728d469f38db6cb70aa65e21aadea4c72"
+                "reference": "d48a711d88ef5ffb3e35fd127f47b704730c76d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mohamedsabil83/filament-forms-tinyeditor/zipball/1344599728d469f38db6cb70aa65e21aadea4c72",
-                "reference": "1344599728d469f38db6cb70aa65e21aadea4c72",
+                "url": "https://api.github.com/repos/mohamedsabil83/filament-forms-tinyeditor/zipball/d48a711d88ef5ffb3e35fd127f47b704730c76d5",
+                "reference": "d48a711d88ef5ffb3e35fd127f47b704730c76d5",
                 "shasum": ""
             },
             "require": {
@@ -2661,7 +2661,7 @@
             ],
             "support": {
                 "issues": "https://github.com/mohamedsabil83/filament-forms-tinyeditor/issues",
-                "source": "https://github.com/mohamedsabil83/filament-forms-tinyeditor/tree/v1.7.1"
+                "source": "https://github.com/mohamedsabil83/filament-forms-tinyeditor/tree/v1.7.2"
             },
             "funding": [
                 {
@@ -2673,7 +2673,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-23T11:58:47+00:00"
+            "time": "2023-05-08T15:55:17+00:00"
         },
         {
             "name": "monolog/monolog",
