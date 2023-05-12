@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Widgets;
+namespace App\Filament\Resources\PostResource\Widgets;
 
-use App\Models\UpvoteDownvote;
 use App\Models\PostView;
+use App\Models\UpvoteDownvote;
+use Filament\Widgets\StatsOverviewWidget\Card;
 use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,9 +21,7 @@ class PostOverview extends Widget
             'upvotes' => UpvoteDownvote::where('post_id', '=', $this->record->id)->where('is_upvote', '=', 1)->count(),
             'downvotes' => UpvoteDownvote::where('post_id', '=', $this->record->id)->where('is_upvote', '=', 0)->count(),
         ];
-           
     }
-    
 
-    protected static string $view = 'filament.widgets.post-overview';
+    protected static string $view = 'filament.resources.post-resource.widgets.post-overview';
 }

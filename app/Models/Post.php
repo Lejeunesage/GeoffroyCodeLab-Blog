@@ -66,16 +66,16 @@ class Post extends Model
         return '/storage/' . $this->thumbnail;
     }
 
-    // public function humanReadTime(): Attribute
-    // {
-    //     return new Attribute(
-    //         get: function ($value, $attributes) {
-    //             $words = Str::wordCount(strip_tags($attributes['body']));
-    //             $minutes = ceil($words / 200);
+    public function humanReadTime(): Attribute
+    {
+        return new Attribute(
+            get: function ($value, $attributes) {
+                $words = Str::wordCount(strip_tags($attributes['body']));
+                $minutes = ceil($words / 200);
 
-    //             return $minutes . ' ' . str('min')->plural($minutes) . ', '
-    //                 . $words . ' ' . str('word')->plural($words);
-    //         }
-    //     );
-    // }
+                return $minutes . ' ' . str('min')->plural($minutes) . ', '
+                    . $words . ' ' . str('mots')->plural($words);
+            }
+        );
+    }
 }

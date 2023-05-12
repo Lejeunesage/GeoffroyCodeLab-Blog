@@ -6,7 +6,7 @@
     <!-- Post Section -->
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-        <article class="flex flex-col shadow my-4">
+        <article class="flex flex-col shadow my-4 bg-white">
             <!-- Article Image -->
             <a href="#" class="hover:opacity-75 bg-white">
                 <img src="{{$post->getThumbnail()}}">
@@ -25,14 +25,14 @@
 
                 <p href="#" class="text-sm pb-3">
                     Par <a href="{{route('view', $post)}}" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, Publier le
-                    {{$post->getFormattedDate()}}
+                    {{$post->getFormattedDate()}} | {{ $post->human_read_time }}
                 </p>
                 <div>
                     {!!$post->body!!}
                 </div>
             </div>
 
-         <livewire:upvote-downvote :post="$post" class="ml-5"/>
+            <livewire:upvote-downvote :post="$post"/>
 
         </article>
 
