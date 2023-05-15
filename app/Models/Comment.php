@@ -15,7 +15,7 @@ class Comment extends Model
         'comment',
         'post_id',
         'user_id',
-        // 'parent_id'
+        'parent_id'
     ];
 
     public function user(): BelongsTo
@@ -28,13 +28,13 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 
-    // public function parentComment(): BelongsTo
-    // {
-    //     return $this->belongsTo(Comment::class, 'parent_id');
-    // }
+    public function parentComment(): BelongsTo
+    {
+        return $this->belongsTo(Comment::class, 'parent_id');
+    }
 
-    // public function comments(): HasMany
-    // {
-    //     return $this->hasMany(Comment::class, 'parent_id')->orderByDesc('created_at');
-    // }
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'parent_id')->orderByDesc('created_at');
+    }
 }

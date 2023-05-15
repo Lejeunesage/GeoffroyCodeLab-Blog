@@ -58,7 +58,7 @@
     <div class="fixed right-0 left-0 top-0">
         <header class="w-full  flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
             <div class="flex flex-col  justify-startitems-center">
-                <a class="font-bold text-white uppercase  text-3xl" href="{{ route('home') }}">
+                <a class="font-bold text-white  text-3xl" href="{{ route('home') }}">
 
                     {{ \App\Models\TextWidget::getTitle('header') }}
                 </a>
