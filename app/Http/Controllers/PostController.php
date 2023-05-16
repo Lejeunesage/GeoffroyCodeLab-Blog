@@ -183,6 +183,9 @@ class PostController extends Controller
         return view('post.index', compact('posts', 'category'));
     }
 
+   
+
+
     public function search(Request $request)
     {
         $q = $request->get('q');
@@ -199,4 +202,5 @@ class PostController extends Controller
 
         return view('post.search', compact('posts'));
     }
+
 }
