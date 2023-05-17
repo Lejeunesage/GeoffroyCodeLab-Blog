@@ -83,7 +83,7 @@
             <div class="flex sm:items-center  text-white">
                 <a href="{{ route('home') }}"
                     class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 text-white hover:text-white">Accueil</a>
-                <a href="#"
+                <a  href="{{ route('portfolio') }}"
                     class=" text-white hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
 
                 <a href="{{ route('about-us') }}"

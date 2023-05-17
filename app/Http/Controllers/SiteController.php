@@ -17,4 +17,15 @@ class SiteController extends Controller
 
         return view('about', compact('widget'));
     }
+
+
+    public function portfolio(): View
+    {
+        // $widget = TextWidget::query()
+        //     ->where('key', '=', 'about-page')
+        //     ->where('active', '=', 1)
+        //     ->first();
+
+        return view('portfolio');
+    }
 }
