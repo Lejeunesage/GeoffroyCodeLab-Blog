@@ -11,13 +11,13 @@
              <span class="rounded-md text-amber-600">Geoffroy OTEGBEYE</span>.
             </h1>
             <p class="text-base mb-8 max-w-[520px]">
-              Je suis un développeur avec plus de 10 ans d'expérience. <br/>
+              Je suis passionné par le développement web et je me considère comme un développeur full-stack polyvalent. Avec une solide expérience dans la création de sites web et d'applications, je suis constamment en quête de nouvelles technologies et de meilleures pratiques pour améliorer mes compétences. <br/>
                J'aime partager mes connaissances avec les autres, c'est pourquoi j'ai créé une
               <a
                 class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary"
                 href="https://youtube.com/TheCodeholic" target="_blank">Chaine Youtube</a> et un <a
                 class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary"
-                href="https://youtube.com/TheCodeholic" target="_blank">Blog</a>. <br>
+                href="/" target="_blank">Blog</a>. <br>
             </p>
             <ul class="flex flex-wrap items-center">
               <li>

@@ -6,14 +6,14 @@
   <div class="container">
     <div class="flex -mx-4 items-center justify-between relative">
       <div class="pr-4 w-60 max-w-full">
-        <a href="/" class="w-full flex items-center py-2">
+        <a href="/" class="w-full flex flex-col items-center py-2">
           <img
-            src="{{ url('/img/GeoNav.png') }}"
+            src="{{ url('/img/logo.png') }}"
             alt="logo"
             class="w-[100px] lg:w-[100px] inline-block dark:hidden"
           />
           <img
-            src="{{ url('/img/Logowhite.png') }}"
+            src="{{ url('/img/logowhite.png') }}"
             alt="logo"
             class="w-[48px] lg:w-[64px] hidden dark:inline-block"
           />
