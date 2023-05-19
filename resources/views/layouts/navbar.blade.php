@@ -10,7 +10,7 @@
           <img
             src="{{ url('/img/logo.png') }}"
             alt="logo"
-            class="w-[100px] lg:w-[100px] inline-block dark:hidden"
+            class="w-[48px] lg:w-[64px] inline-block dark:hidden"
           />
           <img
             src="{{ url('/img/logowhite.png') }}"

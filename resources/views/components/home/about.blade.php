@@ -7,14 +7,14 @@
             <div class="w-full xl:w-1/2 px-3 sm:px-4">
               <div class="py-3 sm:py-4">
                 <img
-                  src="{{ url('/img/me1.png') }}"
+                  src="{{ url('/img/me1.jpg') }}"
                   alt=""
                   class="rounded-2xl w-full"
                 />
               </div>
               <div class="py-3 sm:py-4">
                 <img
-                  src="{{ url('/img/me3.png') }}"
+                  src="{{ url('/img/me1.jpg') }}"
                   alt=""
                   class="rounded-2xl w-full"
                 />
@@ -23,7 +23,7 @@
             <div class="w-full xl:w-1/2 px-3 sm:px-4">
               <div class="my-4 relative z-10">
                 <img
-                  src="{{ url('/img/me2.png') }}"
+                  src="{{ url('/img/me1.jpg') }}"
                   alt=""
                   class="rounded-2xl w-full"
                 />
@@ -36,24 +36,22 @@
           <div class="mt-10 lg:mt-0">
             <span class="font-semibold text-lg text-primary mb-2 block">
                <blockquote class="text-sm text-gray-500 italic py-2 px-3 border-l-4 border-amber-500">
-                   "Everything is achievable with hard work"
+                   "Tout est réalisable avec beaucoup de travail"
                </blockquote>
             </span>
             <h2 class="font-bold text-3xl sm:text-4xl dark:text-gray-200 mb-8">
-              About Me
+              A propos de moi
             </h2>
             <p class="text-base dark:text-gray-400 mb-8">
-              I have been working as a professional software developer for 10+ years. <br />
-              During my career I have worked on various types of projects with various technologies,
-              but very often I feel that I am a junior developer who just started coding. <br />
+              En qualité de développeur d'applications web, j'exerce mes compétences sur une variété de projets technologiques. <br /> Malgré cela, je perçois régulièrement cette sensation d'être un développeur novice, à peine initié aux arcanes de la programmation. <br />
             </p>
             <p class="text-base dark:text-gray-400 mb-8">
-              In 2018 I decided to create a YouTube channel and share my knowledge. My channel is mostly focused on
+             J'ai décidé de créer une chaîne YouTube et de partager mes connaissances. Ma chaîne est principalement axée sur
               <span class="text-amber-500 font-bold">PHP</span> and <span class="text-amber-500 font-bold">JavaScript</span>. <br />
-              My content is mostly focused on practical examples and projects. <br />
+              Mon contenu est principalement axé sur des exemples pratiques de tutoriel et des projets. <br />
             </p>
-            <x-button-link href="https://youtube.com/thecodeholic" variant="red" target="_blank">
-              View my channel
+            <x-button-link href="https://www.youtube.com/channel/UC4o6gBv71UMlwlQSLzm8blw/featured" variant="red" target="_blank">
+              Voir ma chaîne
             </x-button-link>
           </div>
         </div>

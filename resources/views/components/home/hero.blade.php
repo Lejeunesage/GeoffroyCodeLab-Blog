@@ -15,7 +15,7 @@
                J'aime partager mes connaissances avec les autres, c'est pourquoi j'ai créé une
               <a
                 class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary"
-                href="https://youtube.com/TheCodeholic" target="_blank">Chaine Youtube</a> et un <a
+                href="https://www.youtube.com/channel/UC4o6gBv71UMlwlQSLzm8blw/featured" target="_blank">Chaine Youtube</a> et un <a
                 class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary"
                 href="/" target="_blank">Blog</a>. <br>
             </p>
@@ -40,9 +40,9 @@
           <div class="lg:text-right lg:ml-auto">
             <div class="relative inline-block z-10 pt-11 lg:pt-0">
               <img
-                src="{{ url('/img/me.png') }}"
+                src="{{ url('/img/me1.jpg') }}"
                 alt="hero"
-                class="max-w-full lg:ml-auto"
+                class="max-w-full lg:ml-auto rounded-tl-[100px]"
               />
               <span class="absolute -left-8 -bottom-8 z-[-1]">
                 <svg
