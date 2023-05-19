@@ -5,10 +5,10 @@
         <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
           <div class="max-w-[570px] mb-12 lg:mb-0">
             <h2 class="text-dark dark:text-gray-100 mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-              FOR BUSINESS ENQUIRIES
+              POUR LES ENQUÊTES COMMERCIALES
             </h2>
             <p class="text-base text-body-color dark:text-gray-200 leading-relaxed mb-9">
-              If you feel my experience and skills fits your needs, feel free to contact me.
+              Si vous pensez que mon expérience et mes compétences correspondent à vos besoins, n'hésitez pas à me contacter.
             </p>
             <div class="flex mb-8 max-w-[370px] w-full">
               <div
@@ -42,9 +42,9 @@
               </div>
               <div class="w-full">
                 <h4 class="font-bold text-dark dark:text-gray-200 text-xl mb-1">
-                  Email Address
+                 Adresse Email
                 </h4>
-                <p class="text-base text-body-color dark:text-gray-300">thecodeholic@gmail.com</p>
+                <p class="text-base text-body-color dark:text-gray-300">geoffroyotegbeye@gmail.com</p>
               </div>
             </div>
           </div>
@@ -101,26 +101,26 @@
               </template>
               @csrf
               <div class="mb-6">
-                <x-forms.input placeholder="Your Name" name="name" x-model="formData.name" ::class="errors.name ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
+                <x-forms.input placeholder="Votre Nom" name="name" x-model="formData.name" ::class="errors.name ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
                 <template x-if="errors.name">
                   <div x-text="errors.name[0]" class="text-red-500"></div>
                 </template>
               </div>
               <div class="mb-6">
-                <x-forms.input type="email" placeholder="Your Email" name="email" x-model="formData.email" ::class="errors.email ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
+                <x-forms.input type="email" placeholder="Votre Email" name="email" x-model="formData.email" ::class="errors.email ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
                 <template x-if="errors.email">
                   <div x-text="errors.email[0]" class="text-red-500"></div>
                 </template>
               </div>
               <div class="mb-6">
-                <x-forms.textarea placeholder="Your Message" name="message" rows="6" x-model="formData.message" ::class="errors.message ? 'border-red-500 focus:border-red-500' : ''"></x-forms.textarea>
+                <x-forms.textarea placeholder="Votre message" name="message" rows="6" x-model="formData.message" ::class="errors.message ? 'border-red-500 focus:border-red-500' : ''"></x-forms.textarea>
                 <template x-if="errors.message">
                   <div x-text="errors.message[0]" class="text-red-500"></div>
                 </template>
               </div>
               <div>
                 <x-button class="w-full">
-                  Send Message
+                  Envoyer Message
                 </x-button>
               </div>
             </form>

@@ -5,10 +5,10 @@
         <div class="w-full px-4">
           <div class="text-center mx-auto mb-[60px] max-w-[510px]">
             <h2 class="font-bold text-3xl text-dark dark:text-gray-300 mb-4">
-              Video Tutorials
+              Tutoriels vidéos
             </h2>
             <p class="text-base text-body-color">
-              You learn most by building projects. Go ahead and build something right now.
+              Vous apprenez le plus en construisant des projets. Allez-y et construisez quelque chose maintenant.
             </p>
           </div>
         </div>
@@ -20,8 +20,8 @@
         @endforeach
       </div>
       <div class="flex justify-center">
-        <x-button-link href="https://youtube.com/TheCodeholic" target="_blank" class="rounded-lg">
-          View All Tutorials
+        <x-button-link href="https://www.youtube.com/channel/UC4o6gBv71UMlwlQSLzm8blw/featured" target="_blank" class="rounded-lg">
+          Voir tous les tutoriels
         </x-button-link>
       </div>
     </div>

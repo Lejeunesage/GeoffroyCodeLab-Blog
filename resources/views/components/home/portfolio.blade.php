@@ -15,10 +15,10 @@
       <div class="w-full px-4">
         <div class="text-center mx-auto mb-[60px] max-w-[510px]">
           <h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark dark:text-gray-300 mb-4">
-            My Recent Projects
+            Mes projets récents
           </h2>
           <p class="text-base text-body-color">
-            You learn most by building projects. Go ahead and build something right now.
+            Vous apprenez le plus en construisant des projets. Allez-y et construisez quelque chose maintenant.
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@
               :class="selectedTab == 'all' ? activeClasses : inactiveClasses "
               class="inline-block py-2 md:py-3 px-5 lg:px-8 rounded-lg text-base font-semibold text-center transition "
             >
-              All Projects
+            Tous les projets
             </button>
           </li>
           @foreach($tabs as $tab)
