@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
@@ -41,3 +42,4 @@ Route::get('/portfolio', [SiteController::class, 'portfolio'])->name('portfolio'
 Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('by-category');
 Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
 
+Route::post('/contact/submit', [ContactController::class, 'submit']);
