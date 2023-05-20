@@ -8,13 +8,13 @@
 
         <article class="flex flex-col shadow my-4 bg-white">
             <!-- Article Image -->
-            <a href="#" class="hover:opacity-75 bg-white">
+            <a href="#" class=" bg-white">
                 <img src="{{ $post->getThumbnail() }}">
             </a>
             <div class="bg-white flex flex-col justify-start p-6">
                 <div class="flex gap-4">
                     @foreach ($post->categories as $category)
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">
+                        <a href="#" class="text-[#0c7187] text-sm font-bold uppercase pb-4">
                             {{ $category->title }}
                         </a>
                     @endforeach
@@ -42,7 +42,7 @@
                 @if ($prev)
                     <a href="{{ route('view', $prev) }}"
                         class="block w-full bg-white shadow hover:shadow-md text-left p-6">
-                        <p class="text-lg text-blue-800 font-bold flex items-center">
+                        <p class="text-lg text-[#0c7187] font-bold flex items-center">
                             <i class="fas fa-arrow-left pr-1"></i>
                             Précédent
                         </p>
@@ -54,7 +54,7 @@
                 @if ($next)
                     <a href="{{ route('view', $next) }}"
                         class="block w-full bg-white shadow hover:shadow-md text-right p-6">
-                        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Suivant
+                        <p class="text-lg text-[#0c7187] font-bold flex items-center justify-end">Suivant
                             <i class="fas fa-arrow-right pl-1"></i>
                         </p>
                         <p class="pt-2">
@@ -80,7 +80,7 @@
                     {{ \App\Models\TextWidget::getTitle('about-us-sidebar') }}
                 </p>
                 {!! \App\Models\TextWidget::getContent('about-us-sidebar') !!}
-                <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4">
+                <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-[#0c7187] pt-4">
                     <a class="pl-4" href="#">
                         <i class="fab fa-linkedin"></i>
                     </a>

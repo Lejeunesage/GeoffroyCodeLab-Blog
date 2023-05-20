@@ -1,5 +1,5 @@
 <!-- Sidebar Section -->
-<aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+<aside class="w-96 md:w-1/3  flex flex-col items-center px-3">
 
 
 
@@ -24,7 +24,7 @@
 
     {!! \App\Models\TextWidget::getContent('about-us-sidebar') !!}
 
-    <a href="{{route('about-us')}}" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+    <a href="{{route('portfolio')}}" class="w-full bg-[#0c7187] text-white font-bold text-sm uppercase rounded hover:bg-[#015466] flex items-center justify-center px-2 py-3 mt-4">
       Apprendre à mieux me connaître
     </a>
   </div>

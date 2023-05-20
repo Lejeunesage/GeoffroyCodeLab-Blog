@@ -10,14 +10,14 @@
           <img
             src="{{ url('/img/logo.png') }}"
             alt="logo"
-            class="w-[48px] lg:w-[64px] inline-block dark:hidden"
+            class="w-[48px] inline-block dark:hidden"
           />
           <img
             src="{{ url('/img/logowhite.png') }}"
             alt="logo"
-            class="w-[48px] lg:w-[64px] hidden dark:inline-block"
+            class="w-[48px] hidden dark:inline-block"
           />
-          <span class="text-xl xl:text-2xl font-bold text-[#0c7187] dark:text-white">GeoffroyCodeLab</span>
+          <span class="text-xl  font-bold text-[#0c7187] dark:text-white">GeoffroyCodeLab</span>
         </a>
       </div>
       <div class="flex px-4 justify-end items-center w-full">

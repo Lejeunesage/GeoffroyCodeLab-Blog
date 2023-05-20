@@ -9,10 +9,12 @@
     <meta name="description" content="{{ $metaDescription }}">
 
 
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
     </style>
 
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
@@ -57,46 +59,131 @@
 
     <!-- Text Header -->
     <div class="fixed right-0 left-0 top-0">
-        <header class="w-full  flex justify-between items-center px-10  bg-blue-800 shadow-md mx-auto">
+        <header
+            class="bg-white w-full flex items-center shadow-md dark:bg-slate-900 h-24  justify-between px-10   mx-auto">
 
             {{-- Affichage du log et de la description --}}
             <div class="flex flex-col  justify-startitems-center">
-                <a class="font-bold text-white  text-3xl" href="{{ route('home') }}">
+                <a class="font-bold text-[#0c7187] w-full flex flex-col items-center py-2  text-3xl"
+                    href="{{ route('home') }}">
+                    <img src="{{ url('/img/logo.png') }}" alt="logo"
+                        class="w-[64px] lg:w-[48px]  inline-block dark:hidden" />
+                    <span
+                        class=" hidden text-xl lg:flex font-bold text-[#0c7187] dark:text-white">{{ \App\Models\TextWidget::getTitle('header') }}</span>
 
-                    {{ \App\Models\TextWidget::getTitle('header') }}
+
                 </a>
-                <span class="text-lg text-white">
+                {{-- <span class="text-lg text-[#0c7187] ">
                     {!! \App\Models\TextWidget::getContent('header') !!}
-                </span>
+                </span> --}}
             </div>
 
             {{-- Affichage de formulaire de recherche --}}
 
-            <form class="lg:w-96 w-40" method="get" action="{{ route('search') }}">
+            <form class="lg:w-96 w-48 " method="get" action="{{ route('search') }}">
                 <input name="q" value="{{ request()->get('q') }}"
-                    class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6 font-medium"
+                    class="block w-full rounded-md border-md px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6 font-medium"
                     placeholder="Faire une recherche" />
             </form>
 
 
+            {{-- responsive des boutons de navigation --}}
+            <div  @click="open = !open"
+           x-data="{ open: false }" class="relative lg:hidden  ">
+
+                <div x-data="{ open: false }" class="relative">
+                    <button x-show="!open" @click="open = !open" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="92" viewBox="0 0 92 92" id="menu">
+                        <path d="M78 23.5H14c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5h64c3.6 0 6.5 2.9 6.5 6.5s-2.9 6.5-6.5 6.5zM84.5 46c0-3.6-2.9-6.5-6.5-6.5H14c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5h64c3.6 0 6.5-2.9 6.5-6.5zm0 29c0-3.6-2.9-6.5-6.5-6.5H14c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5h64c3.6 0 6.5-2.9 6.5-6.5z"></path>
+                      </svg>
+                    </button>
+                  
+                    <button x-show="open" @click="open = !open" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="512" viewBox="0 0 512 512" id="close">
+                        <path d="M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z"></path>
+                      </svg>
+                    </button>
+                  </div>
+
+
+                <div x-show="open" @click.away="open = false"
+                    class="absolute top-0 right-0 mt-[18rem] w-48  bg-white rounded-lg shadow-lg border flex flex-col">
+                    <a href="{{ route('home') }}"
+                        class="{{ request()->routeIs('home') ? 'text-[#0c7187]' : '' }} rounded py-2 px-4 mx-2 hover:text-[#0c7187] text-gray-800 font-bold ">Accueil</a>
+
+                    <a href="{{ route('portfolio') }}"
+                        class=" text-gray-800 font-bold hover:text-[#0c7187]  rounded py-2 px-4 mx-2">Portfolio</a>
+
+                    <!-- Settings Dropdown -->
+                    @auth
+                        <div class="flex sm:items-center sm:ml-6">
+                            <x-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <button
+                                        class=" hover:text-[#0c7187] flex items-center text-gray-800 font-bold rounded py-2 ">
+                                        <div>{{ Auth::user()->name }}</div>
+
+                                        <div class="ml-1">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </x-slot>
+
+                                <x-slot name="content" class="shadow-md border-md">
+                                    <x-dropdown-link :href="route('profile.edit')">
+                                        {{ __('Profil') }}
+                                    </x-dropdown-link>
+
+                                    <!-- Authentication -->
+                                    <form method="POST" class="" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                            class="border-b">
+                                            {{ __('Se déconnecter') }}
+                                        </x-dropdown-link>
+                                    </form>
+                                    @can('access-admin-panel')
+                                        <a href="/admin" class=" text-gray-800 text-[0.9rem] rounded py-3 px-2 mx-2">Panel
+                                            Admin</a>
+                                    @endcan
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}" class="text-gray-800 font-bold  rounded py-2 px-4 mx-2">Se
+                            connecter</a>
+                        <a href="{{ route('register') }}" class="text-gray-800 font-bold rounded py-2 px-4 mx-2">S'inscrire</a>
+                    @endauth
+                </div>
+
+            </div>
+
+
             {{-- Affichage des boutons de navigation --}}
-            <div class="flex sm:items-center  text-white">
+            <div class="sm:items-center hidden lg:flex   text-white">
+
+                
                 <a href="{{ route('home') }}"
-                    class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 text-white hover:text-white">Accueil</a>
-                <a  href="{{ route('portfolio') }}"
-                    class=" text-white hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2">Portfolio</a>
+                    class="{{ request()->routeIs('home') ? 'text-[#0c7187]' : '' }} rounded py-2 px-4 mx-2 hover:text-[#0c7187] text-gray-800 font-bold ">Accueil</a>
 
-                <a href="{{ route('about-us') }}"
-                    class="{{ request()->routeIs('about-us') ? 'bg-blue-600 text-white' : '' }}   hover:bg-blue-600 hover:text-white text-white rounded py-2 px-4 mx-2">A
-                    propos</a>
-
+                <a href="{{ route('portfolio') }}"
+                    class=" text-gray-800 font-bold hover:text-[#0c7187]  rounded py-2 px-4 mx-2">Portfolio</a>
 
                 <!-- Settings Dropdown -->
                 @auth
                     <div class="flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
-                                <button class="hover:bg-blue-600 hover:text-white flex items-center rounded py-2 px-4 mx-2">
+                                <button
+                                    class=" hover:text-[#0c7187] flex items-center text-gray-800 font-bold rounded py-2 ">
                                     <div>{{ Auth::user()->name }}</div>
 
                                     <div class="ml-1">
@@ -110,13 +197,13 @@
                                 </button>
                             </x-slot>
 
-                            <x-slot name="content">
+                            <x-slot name="content" class="shadow-md border-md">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profil') }}
                                 </x-dropdown-link>
 
                                 <!-- Authentication -->
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="POST" class="" action="{{ route('logout') }}">
                                     @csrf
 
                                     <x-dropdown-link :href="route('logout')"
@@ -134,34 +221,32 @@
                         </x-dropdown>
                     </div>
                 @else
-                    <a href="{{ route('login') }}" class="hover:bg-blue-600 text-white rounded py-2 px-4 mx-2">Se
+                    <a href="{{ route('login') }}" class="text-gray-800 hover:text-[#0c7187] font-bold rounded py-2 px-4 mx-2">Se
                         connecter</a>
-                    <a href="{{ route('register') }}"
-                        class="hover:bg-blue-600  text-white rounded py-2 px-4 mx-2">S'inscrire</a>
+                    <a href="{{ route('register') }}" class="text-gray-800 hover:text-[#0c7187] font-bold rounded py-2 px-4 mx-2">S'inscrire</a>
                 @endauth
             </div>
         </header>
 
         <!-- Topic Nav -->
-        <nav class=" w-full   border-t border-b bg-gray-100" x-data="{ open: false }">
+        <nav class="  right-0 top-full bg-[#0c7187]  px-6 z-50 shadow  w-full text-white lg:px-0 lg:max-w-full lg:w-full lg:right-4 lg:block lg:static lg:shadow-none"
+            x-data="{ open: false }">
             <div class="block sm:hidden">
                 <a href="#"
-                    class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+                    class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center py-3"
                     @click="open = !open">
-                    Sujets <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
+                    Catégories <i :class="open ? 'fa-chevron-down' : 'fa-chevron-up'" class="fas ml-2"></i>
                 </a>
 
             </div>
             <div :class="open ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div
-                    class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-
-                    {{-- <a href="{{route('home')}}" class="{{ request()->routeIs('home') ? 'bg-blue-600 text-white' : '' }} rounded py-2 px-4 mx-2 hover:bg-blue-600 hover:text-white">Accueil</a> --}}
+                    class="w-full  mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
 
 
                     @foreach ($categories as $category)
                         <a href="{{ route('by-category', $category) }}"
-                            class="hover:bg-blue-600 hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-blue-600 text-white' : '' }}">{{ $category->title }}</a>
+                            class="hover:bg-[#0c7187] hover:text-white rounded py-2 px-4 mx-2 {{ request('category')?->slug === $category->slug ? 'bg-[#0c7187] text-white' : '' }}">{{ $category->title }}</a>
                     @endforeach
 
 
@@ -172,13 +257,15 @@
     </div>
 
 
+
     <main>
-        <div class="container flex flex-wrap mx-auto p-6 border">
+        <div class="flex flex-wrap mx-auto p-6">
 
             {{ $slot }}
 
         </div>
     </main>
+
 
 
     <footer class="w-full border-t bg-white pb-12">
@@ -200,14 +287,14 @@
                 &#8594;
             </button>
         </div> -->
-        <div class="w-full container mx-auto flex flex-col items-center">
+        <div class="w-full  mx-auto flex flex-col items-center">
             <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 <a href="#" class="uppercase px-3">About Us</a>
                 <a href="#" class="uppercase px-3">Privacy Policy</a>
                 <a href="#" class="uppercase px-3">Terms & Conditions</a>
                 <a href="#" class="uppercase px-3">Contact Us</a>
             </div> -->
-            <div class="uppercase py-6">&copy; fifamin.com</div>
+            <div class="lowercase py-6">&copy; geoffroycodelab.com</div>
         </div>
     </footer>
     @livewireScripts

@@ -130,7 +130,7 @@
 
 
 ::-webkit-scrollbar-thumb {
-    background-color: #1e40af;
+    background-color: #0c7187;
     border-radius: 50px;
 }
 
@@ -148,5 +148,6 @@ pre {
 }
 
 main {
-    margin-top: 7rem;
+    margin-top: 10rem;
 }
+
