@@ -2,7 +2,7 @@
         meta-description="Apprenez à créer une application perfornante">
         <div class="   py-6">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
                 <!-- Latest Post -->
                 <div class="col-span-2">
                     <h2 class="text-lg sm:text-xl font-bold text-[#d97706] uppercase pb-1 border-b mb-3">
@@ -50,35 +50,34 @@
                 </div>
             </div>
 
-            <div class="flex gap-5">
-                 <!-- Latest Categories -->
+            <div class="flex flex-col xl:flex-row gap-5">
+                <!-- Latest Categories -->
 
 
-                 <div class="mb-8 max-w-[50%]"">
+                <div class="mb-8 xl:max-w-[50%]"">
                     @foreach ($categories as $category)
-                <div>
-                    <h2
-                        class="text-lg text-[#d97706] sm:text-xl font-bold  uppercase pb-1 border-b mb-3">
+                        <div>
+                            <h2 class="text-lg text-[#d97706] sm:text-xl font-bold  uppercase pb-1 border-b mb-3">
 
-                        <a href="{{ route('by-category', $category) }}">
-                            {{ $category->title }}
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                    </h2>
+                                <a href="{{ route('by-category', $category) }}">
+                                    {{ $category->title }}
+                                    <i class="fas fa-arrow-down"></i>
+                                </a>
+                            </h2>
 
-                    <div class="mb-6">
-                        <div class="flex flex-col gap-3">
-                            @foreach ($category->publishedPosts()->limit(3)->get() as $post)
-                                <x-post-item :post="$post" :show-author="false" />
-                            @endforeach
+                            <div class="mb-6">
+                                <div class="flex flex-col gap-3">
+                                    @foreach ($category->publishedPosts()->limit(3)->get() as $post)
+                                        <x-post-item :post="$post" :show-author="false" />
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            @endforeach
+                    @endforeach
                 </div>
 
                 <!-- Recommended posts -->
-                <div class="mb-8 max-w-[50%]">
+                <div class="mb-8 xl:max-w-[50%]">
                     <h2 class="text-lg sm:text-xl font-bold text-[#d97706] uppercase pb-1 border-b mb-3">
                         Articles Recommandés
                     </h2>
@@ -90,7 +89,7 @@
                     </div>
                 </div>
 
-               
+
             </div>
 
         </div>

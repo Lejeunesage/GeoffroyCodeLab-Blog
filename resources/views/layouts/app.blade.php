@@ -26,7 +26,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50 font-family-karla">
+<body class=" font-family-Nunito">
 
     <!-- Top Bar Nav -->
     <!-- <nav class="w-full py-4 bg-blue-800 shadow">
@@ -269,7 +269,7 @@
 
 
     <footer class="w-full border-t bg-white pb-12">
-        <!-- <div
+        {{-- <div
             class="relative w-full flex items-center invisible md:visible md:pb-12"
             x-data="getCarouselData()"
         >
@@ -286,7 +286,7 @@
                 x-on:click="increment()">
                 &#8594;
             </button>
-        </div> -->
+        </div>  --}}
         <div class="w-full  mx-auto flex flex-col items-center">
             <!-- <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 <a href="#" class="uppercase px-3">About Us</a>
@@ -298,30 +298,30 @@
         </div>
     </footer>
     @livewireScripts
-    <script>
-        // function getCarouselData() {
-        //     return {
-        //         currentIndex: 0,
-        //         images: [
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-        //             'https://source.unsplash.com/collection/1346951/800x800?sig=9',
-        //         ],
-        //         increment() {
-        //             this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
-        //         },
-        //         decrement() {
-        //             this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
-        //         },
-        //     }
-        // }
-    </script>
+    {{-- <script>
+        function getCarouselData() {
+            return {
+                currentIndex: 0,
+                images: [
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=1',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=2',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=3',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=4',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=5',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=6',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=7',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=8',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=9',
+                ],
+                increment() {
+                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
+                },
+                decrement() {
+                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
+                },
+            }
+        }
+    </script> --}}
 
 </body>
 
